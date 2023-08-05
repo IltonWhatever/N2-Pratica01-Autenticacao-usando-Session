@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block titulo_pagina %}Página inicial{% endblock %}
+{% block conteudo %}
+
+{% set mensagens = get_flashed_messages() %}
+{% if mensagens %}
+    <div>{{mensagens}}</div>
+{% endif %}
+
+<h1>Login</h1>
+<form action="{{ url_for('login') }}" method="post">
+<input type="text" name="username" placeholder="Usuário">
+<input type="password" name="password" placeholder="Senha">
+<input type="submit" value="Entrar">
+</form>
+
+<p>Não tem uma conta? <a href="{{ url_for('register') }}">Cadastre-
+se</a></p>
+{% endblock %}
